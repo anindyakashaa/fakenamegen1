@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <h1>Fake Name Generator</h1>
+    <p>Generate Name: <span id="randomName"></span></p>
+    <button id="generateButton">Generate Name</button>
+
+    <script>
+      const generateButton = document.getElementById("generateButton");
+      const randomNameElement = document.getElementById("randomName");
+
+      generateButton.addEventListener("click", () => {
+        fetch("http://localhost:3000/generate")
+        .then(response => response.text())
+        .then(data => {
+          randomNameElement.textContent = data;
+        });
+      });
+    </script>
+  </body>
+</html>
